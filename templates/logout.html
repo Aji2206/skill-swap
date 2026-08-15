@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout | Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/logout.css' %}">
+</head>
+<body>
+
+<div class="background-circle circle1"></div>
+<div class="background-circle circle2"></div>
+
+<div class="logout-container">
+
+    <div class="logout-card">
+
+        <div class="logout-icon">
+            🚪
+        </div>
+
+        <h1>Logout</h1>
+
+        <p>
+            Are you sure you want to logout from
+            <strong>Skill Swap?</strong>
+            <br>
+            We hope to see you again soon.
+        </p>
+
+        <form method="POST" action="{% url 'logout' %}">
+
+            {% csrf_token %}
+
+            <div class="button-group">
+
+                <button type="submit" class="logout-btn">
+                    🚪 Logout
+                </button>
+
+                <a href="{% url 'dashboard' %}" class="cancel-btn">
+                    ← Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

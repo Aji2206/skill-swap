@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Matches | Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/matches.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="page-title">
+        <h1>🤝 Skill Matches</h1>
+        <p>Find users who match your skills.</p>
+    </div>
+
+    {% if matches %}
+
+    <div class="match-container">
+
+        {% for match in matches %}
+
+        <div class="match-card">
+
+            <!-- Profile -->
+            <div class="profile">
+
+                {% if match.profile_picture %}
+                    <img src="{{ match.profile_picture.url }}" class="avatar" alt="Profile">
+                {% else %}
+                    <img src="{% static 'profile/default.png' %}" class="avatar" alt="Profile">
+                {% endif %}
+
+                <div class="info">
+                    <h2>{{ match.user.username }}</h2>
+
+                    {% if match.user.email %}
+                        <p>{{ match.user.email }}</p>
+                    {% endif %}
+
+                    {% if match.location %}
+                        <small>📍 {{ match.location }}</small>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <!-- Bio -->
+            <div class="skill-section">
+                <h4>📝 Bio</h4>
+
+                {% if match.bio %}
+                    <p>{{ match.bio }}</p>
+                {% else %}
+                    <p>No bio available.</p>
+                {% endif %}
+            </div>
+
+            <!-- Skills Offered -->
+            <div class="skill-section">
+                <h4>🎯 Skills Offered</h4>
+
+                {% if match.skills_offered %}
+                    <span class="tag">{{ match.skills_offered }}</span>
+                {% else %}
+                    <span class="tag">No Skills Added</span>
+                {% endif %}
+            </div>
+
+            <!-- Skills Wanted -->
+            <div class="skill-section">
+                <h4>📚 Skills Wanted</h4>
+
+                {% if match.skills_wanted %}
+                    <span class="tag">{{ match.skills_wanted }}</span>
+                {% else %}
+                    <span class="tag">No Skills Added</span>
+                {% endif %}
+            </div>
+
+            <!-- Rating -->
+            <div class="skill-section">
+                <h4>⭐ Rating</h4>
+                <p>{{ match.rating }}/5</p>
+            </div>
+
+            <!-- Match Score -->
+            <div class="score">
+
+                <p><strong>Match Score</strong></p>
+
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                </div>
+
+                <p class="percent">90% Match</p>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="actions">
+
+                <a href="{% url 'profile' %}" class="btn profile-btn">
+                    👤 View Profile
+                </a>
+
+                <a href="{% url 'inbox' %}" class="btn message-btn">
+                    💬 Message
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="no-match">
+
+        <h2>No Matches Found 😔</h2>
+
+        <p>
+            Complete your profile and add your skills to get better matches.
+        </p>
+
+        <a href="{% url 'edit_profile' %}" class="btn profile-btn">
+            ✏ Complete Profile
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

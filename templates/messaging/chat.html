@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap | Chat</title>
+
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <!-- Header -->
+
+    <div class="chat-header">
+
+        <a href="{% url 'inbox' %}" class="back-btn">
+            ←
+        </a>
+
+        <div class="profile-circle">
+            {{ receiver.username|first|upper }}
+        </div>
+
+        <div class="profile-info">
+
+            <h2>{{ receiver.username }}</h2>
+
+            <p>Online</p>
+
+        </div>
+
+    </div>
+
+    <!-- Messages -->
+
+    <div class="chat-body">
+
+        {% for message in messages %}
+
+            {% if message.sender == request.user %}
+
+                <div class="message-row sender-row">
+
+                    <div class="message sender">
+
+                        {{ message.message }}
+
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <div class="message-row receiver-row">
+
+                    <div class="message receiver">
+
+                        {{ message.message }}
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        {% empty %}
+
+        <div class="empty-chat">
+
+            💬 Start your conversation now!
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- Send Message -->
+
+    <form method="POST" class="chat-footer">
+
+        {% csrf_token %}
+
+        {{ form.message }}
+
+        <button type="submit">
+
+            ➤
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

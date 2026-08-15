@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Skill Swap</title>
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="background-circle one"></div>
+<div class="background-circle two"></div>
+
+<div class="login-container">
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+</div>
+
+<h1>Welcome Back</h1>
+
+<p>
+
+Login to continue your Skill Swap journey.
+
+</p>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.non_field_errors }}
+
+{% for field in form %}
+
+<div class="input-box">
+
+<label>{{ field.label }}</label>
+
+{{ field }}
+
+{% if field.errors %}
+
+<div class="error">
+
+{{ field.errors }}
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+<button type="submit">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+</button>
+
+</form>
+
+<div class="divider">
+
+<span>OR</span>
+
+</div>
+
+<div class="register-link">
+
+Don't have an account?
+
+<a href="{% url 'register' %}">
+
+Create Account
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

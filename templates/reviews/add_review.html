@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Review</title>
+
+<link rel="stylesheet" href="{% static 'css/reviews.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+⭐ Review {{ reviewee.username }}
+
+</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{% for field in form %}
+
+<p>
+
+{{ field.label_tag }}
+
+{{ field }}
+
+{% if field.errors %}
+
+<small style="color:red;">
+
+{{ field.errors }}
+
+</small>
+
+{% endif %}
+
+</p>
+
+{% endfor %}
+
+<div style="margin-top:25px;">
+
+<button type="submit">
+
+⭐ Submit Review
+
+</button>
+
+</div>
+
+</form>
+
+<div style="margin-top:30px; text-align:center;">
+
+<a href="{% url 'review_list' reviewee.id %}" class="btn">
+
+← Back to Reviews
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

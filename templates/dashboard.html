@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-handshake-angle"></i>
+        Skill Swap
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="{% url 'profile' %}">
+            <i class="fa-solid fa-user"></i>
+            Profile
+        </a>
+
+        <a href="{% url 'skill_list' %}">
+            <i class="fa-solid fa-book"></i>
+            Skills
+        </a>
+
+        <a href="{% url 'matches' %}">
+            <i class="fa-solid fa-users"></i>
+            Matches
+        </a>
+
+        <a href="{% url 'inbox' %}">
+            <i class="fa-solid fa-comments"></i>
+            Messages
+        </a>
+
+        <a href="{% url 'review_list' request.user.id %}">
+            <i class="fa-solid fa-star"></i>
+            Reviews
+        </a>
+
+        <a href="{% url 'logout_page' %}" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+            Welcome,
+            <span>{{ request.user.username }}</span>
+        </h1>
+
+        <p>
+
+            Learn new skills, teach others, collaborate with talented people
+            and grow together through Skill Swap.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'add_skill' %}" class="primary-btn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Skill
+
+            </a>
+
+            <a href="{% url 'matches' %}" class="secondary-btn">
+
+                <i class="fa-solid fa-users"></i>
+
+                Find Matches
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="profile-box">
+
+            <img src="{% static 'css/image/logo.png' %}" alt="Skill Swap">
+
+            <h2>{{ request.user.username }}</h2>
+
+            <p>Skill Swapper</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Statistics, Quick Actions, Activity, and Footer will be added in the next part -->
+ <!-- ================= STATISTICS ================= -->
+
+<section class="stats">
+
+    <div class="stat-card">
+        <i class="fa-solid fa-user-group"></i>
+        <h2>250+</h2>
+        <p>Active Members</p>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-book-open"></i>
+        <h2>500+</h2>
+        <p>Skills Shared</p>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-handshake"></i>
+        <h2>120+</h2>
+        <p>Successful Swaps</p>
+    </div>
+
+    <div class="stat-card">
+        <i class="fa-solid fa-star"></i>
+        <h2>4.9</h2>
+        <p>Average Rating</p>
+    </div>
+
+</section>
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+<section class="quick-actions">
+
+    <h2>Quick Actions</h2>
+
+    <div class="action-grid">
+
+        <a href="{% url 'profile' %}" class="action-card">
+            <i class="fa-solid fa-user"></i>
+            <h3>My Profile</h3>
+            <p>View and edit your profile.</p>
+        </a>
+
+        <a href="{% url 'add_skill' %}" class="action-card">
+            <i class="fa-solid fa-plus"></i>
+            <h3>Add Skill</h3>
+            <p>Add a new skill to teach or learn.</p>
+        </a>
+
+        <a href="{% url 'skill_list' %}" class="action-card">
+            <i class="fa-solid fa-book"></i>
+            <h3>Browse Skills</h3>
+            <p>Explore all available skills.</p>
+        </a>
+
+        <a href="{% url 'matches' %}" class="action-card">
+            <i class="fa-solid fa-users"></i>
+            <h3>Find Matches</h3>
+            <p>Connect with matching users.</p>
+        </a>
+
+        <a href="{% url 'inbox' %}" class="action-card">
+            <i class="fa-solid fa-comments"></i>
+            <h3>Messages</h3>
+            <p>Chat with other users.</p>
+        </a>
+
+        <a href="{% url 'review_list' request.user.id %}" class="action-card">
+            <i class="fa-solid fa-star"></i>
+            <h3>Reviews</h3>
+            <p>Read ratings and feedback.</p>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ================= RECENT ACTIVITY ================= -->
+
+<section class="activity">
+
+    <h2>Recent Activity</h2>
+
+    <div class="activity-card">
+
+        <div class="activity-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+                <h4>Welcome to Skill Swap</h4>
+                <p>Complete your profile to start matching with other users.</p>
+            </div>
+        </div>
+
+        <div class="activity-item">
+            <i class="fa-solid fa-book"></i>
+            <div>
+                <h4>Add Your Skills</h4>
+                <p>Tell others what you can teach and what you want to learn.</p>
+            </div>
+        </div>
+
+        <div class="activity-item">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <h4>Find Skill Matches</h4>
+                <p>Browse users with matching interests and connect instantly.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <h3>Skill Swap</h3>
+
+    <p>
+        Learn • Teach • Connect • Grow Together
+    </p>
+
+    <div class="footer-icons">
+
+        <a href="#"><i class="fab fa-facebook"></i></a>
+
+        <a href="#"><i class="fab fa-instagram"></i></a>
+
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+
+        <a href="#"><i class="fab fa-github"></i></a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Skill Swap. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>

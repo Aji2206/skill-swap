@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+
+<hr>
+
+
+<header>
+    <div class="logo">
+       <{% load static %}
+
+<img src="{% static 'css/image/download.jpg' %}" alt="Logo">
+    <h2>Skill Swap</h2>
+        <h2>Skill Swap</h2>
+    </div>
+
+    <nav>
+        <a href="/login/">Login</a> |
+        <a href="/register/">Register</a> |
+        <a href="{% url 'dashboard' %}">Dashboard</a> |
+        <a href="{% url 'profile' %}">Profile</a> |
+        <a href="{% url 'skill_list' %}">Skills</a> |
+        <a href="{% url 'search_skill' %}">Search Skills</a> |
+        <a href="{% url 'matches' %}">Matches</a> |
+        <a href="{% url 'inbox' %}">Messages</a> |
+        <a href="{% url 'logout_page' %}">Logout</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <img src="{% static 'css/image/hero.png' %}" alt="Hero">
+
+    <h1>Swap Skills, Grow Together</h1>
+
+    <p>
+        Learn new skills from your local community without spending money.
+    </p>
+
+    <a href="/register/" class="btn">
+        Get Started
+    </a>
+
+</section>
+
+<section class="skills">
+
+<h2>Popular Skills</h2>
+
+<div class="cards">
+
+<div class="card">Python</div>
+
+<div class="card">Java</div>
+
+<div class="card">Photoshop</div>
+
+<div class="card">Cooking</div>
+
+<div class="card">English</div>
+
+<div class="card">Guitar</div>
+
+</div>
+
+</section>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

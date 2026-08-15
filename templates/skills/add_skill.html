@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Skill | Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/add_skills.css' %}">
+
+</head>
+
+<body>
+
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        🚀 Skill Swap
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{% url 'home' %}">Home</a>
+
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+
+        <a href="{% url 'profile' %}">Profile</a>
+
+        <a href="{% url 'skill_list' %}">Skills</a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<div class="icon">
+
+💡
+
+</div>
+
+<h1>Add New Skill</h1>
+
+<p class="subtitle">
+
+Share your talent and help others learn something new.
+
+</p>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">
+
+🚀 Save Skill
+
+</button>
+
+</form>
+
+<a href="{% url 'skill_list' %}" class="cancel-btn">
+
+← Back to Skills
+
+</a>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 Skill Swap • Learn • Share • Grow
+
+</footer>
+
+</body>
+
+</html>

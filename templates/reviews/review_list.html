@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reviews | Skill Swap</title>
+
+<link rel="stylesheet" href="{% static 'css/reviews.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>⭐ {{ reviewee.username }}'s Reviews</h1>
+
+<h2>
+Average Rating:
+<strong>{{ average|floatformat:1 }}/5 ⭐</strong>
+</h2>
+
+<div style="text-align:center; margin-bottom:30px;">
+
+<a href="{% url 'add_review' reviewee.id %}" class="btn">
+➕ Add Review
+</a>
+
+</div>
+
+{% if reviews %}
+
+{% for review in reviews %}
+
+<div class="review">
+
+<h3>
+👤 {{ review.reviewer.username }}
+</h3>
+
+<p>
+
+<strong>Rating:</strong>
+
+⭐ {{ review.rating }}/5
+
+</p>
+
+<p>
+
+{{ review.comment }}
+
+</p>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<p class="empty">
+
+⭐ No reviews yet.<br>
+
+Be the first to review this user.
+
+</p>
+
+{% endif %}
+
+<div style="text-align:center; margin-top:35px;">
+
+<a href="{% url 'dashboard' %}" class="btn">
+
+🏠 Back to Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register | Skill Swap</title>
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="circle one"></div>
+<div class="circle two"></div>
+
+<div class="register-container">
+
+    <div class="logo-box">
+
+        <img src="{% static 'css/image/logo.png' %}" class="logo">
+
+    </div>
+
+    <h1>Create Account</h1>
+
+    <p>
+        Join Skill Swap and start learning from talented people around you.
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        {% for field in form %}
+
+        <div class="input-box">
+
+            <label>{{ field.label }}</label>
+
+            {{ field }}
+
+            {% if field.errors %}
+            <div class="error">
+                {{ field.errors }}
+            </div>
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+        <button type="submit" class="register-btn">
+
+            <i class="fa-solid fa-user-plus"></i>
+
+            Create Account
+
+        </button>
+
+    </form>
+
+    <div class="divider">
+
+        <span>OR</span>
+
+    </div>
+
+    <a href="{% url 'login' %}" class="login-btn">
+
+        <i class="fa-solid fa-right-to-bracket"></i>
+
+        Login Instead
+
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Profile | Skill Swap</title>
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="profile-card">
+
+<div class="profile-header">
+
+{% if profile.profile_picture %}
+<img src="{{ profile.profile_picture.url }}" class="avatar">
+{% else %}
+<img src="{% static 'images/default.png' %}" class="avatar">
+{% endif %}
+
+<h2>
+{% if request.user.first_name %}
+{{ request.user.first_name }} {{ request.user.last_name }}
+{% else %}
+{{ request.user.username }}
+{% endif %}
+</h2>
+
+<p class="welcome">
+Welcome to Skill Swap
+</p>
+
+</div>
+
+<div class="profile-details">
+
+<div class="detail">
+
+<span>Username</span>
+
+<p>{{ request.user.username }}</p>
+
+</div>
+
+<div class="detail">
+
+<span>Email</span>
+
+<p>{{ request.user.email }}</p>
+
+</div>
+
+<div class="detail">
+
+<span>Bio</span>
+
+<p>{{ profile.bio|default:"No bio added yet." }}</p>
+
+</div>
+
+<div class="detail">
+
+<span>Location</span>
+
+<p>{{ profile.location|default:"Not Added" }}</p>
+
+</div>
+
+<div class="detail">
+
+<span>Skills Offered</span>
+
+<p>{{ profile.skills_offered|default:"No Skills Added" }}</p>
+
+</div>
+
+<div class="detail">
+
+<span>Skills Wanted</span>
+
+<p>{{ profile.skills_wanted|default:"No Skills Added" }}</p>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+<a href="{% url 'edit_profile' %}" class="btn edit-btn">
+
+✏ Edit Profile
+
+</a>
+
+<a href="{% url 'dashboard' %}" class="btn dashboard-btn">
+
+🏠 Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

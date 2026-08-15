@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#2563eb,#7c3aed);
+    padding:20px;
+}
+
+.register-container{
+    width:480px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    color:#fff;
+}
+
+.logo{
+    width:90px;
+    display:block;
+    margin:0 auto 20px;
+}
+
+.register-container h2{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.register-container p{
+    text-align:center;
+    margin-bottom:25px;
+    color:#f1f5f9;
+}
+
+/* Works with {{ form.as_p }} */
+
+form p{
+    margin-bottom:18px;
+}
+
+form p label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:white;
+}
+
+form p input,
+form p select,
+form p textarea,
+.input-box input,
+.input-box select,
+.input-box textarea{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:2px solid transparent;
+    background:#fff;
+    color:#111827;
+    font-size:16px;
+    transition:.3s;
+}
+
+form p input:focus,
+form p select:focus,
+form p textarea:focus,
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,.4);
+}
+
+/* Register Button */
+
+.register-btn,
+button[type="submit"]{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:15px;
+    transition:.3s;
+}
+
+.register-btn:hover,
+button[type="submit"]:hover{
+    transform:translateY(-2px);
+    background:linear-gradient(135deg,#1d4ed8,#6d28d9);
+}
+
+/* Divider */
+
+.divider{
+    display:flex;
+    align-items:center;
+    margin:25px 0;
+    color:white;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:rgba(255,255,255,.3);
+}
+
+.divider span{
+    padding:0 15px;
+}
+
+/* Login Button */
+
+.login-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    padding:15px;
+    background:#fff;
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#22c55e;
+    color:white;
+}
+
+/* Error Messages */
+
+.errorlist{
+    list-style:none;
+    color:#ffb4b4;
+    margin-top:5px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.helptext{
+    display:block;
+    color:#dbeafe;
+    font-size:13px;
+    margin-top:5px;
+}
+
+@media(max-width:500px){
+
+.register-container{
+    width:100%;
+    padding:25px;
+}
+
+.register-container h2{
+    font-size:28px;
+}
+
+}

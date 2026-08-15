@@ -1,0 +1,66 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/messages.css' %}">
+
+<div class="page-title">
+    <h1>Messages</h1>
+    <p>Chat with your skill partners</p>
+</div>
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.content }}
+
+    <button type="submit">
+        Send
+    </button>
+
+</form>
+<div class="chat-container">
+
+    <div class="chat-sidebar">
+        <h2>Chats</h2>
+
+        <div class="user">
+            <div class="avatar">A</div>
+            <div class="user-info">
+                <h3>Ajay</h3>
+                <span>Online</span>
+            </div>
+        </div>
+
+        <div class="user">
+            <div class="avatar">S</div>
+            <div class="user-info">
+                <h3>Sarah</h3>
+                <span>Last seen 5 min ago</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-box">
+
+        <div class="chat-header">
+            Ajay
+        </div>
+
+        <div class="messages">
+
+            <div class="message received">
+                Hi! Can you teach me Python?
+            </div>
+
+            <div class="message sent">
+                Sure! Let's start with Django basics.
+            </div>
+
+        </div>
+
+        <div class="chat-footer">
+            <input type="text" placeholder="Type a message...">
+            <button>Send</button>
+        </div>
+
+    </div>
+
+</div>

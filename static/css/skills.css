@@ -1,0 +1,551 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#eef2ff,#f5f3ff,#ffffff);
+    color:#1f2937;
+    overflow-x:hidden;
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:linear-gradient(90deg,#4F46E5,#6366F1,#7C3AED);
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo h2{
+    color:white;
+    font-size:30px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#FACC15;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+    width:90%;
+    max-width:1300px;
+    margin:50px auto;
+    background:linear-gradient(135deg,#4F46E5,#7C3AED);
+    border-radius:25px;
+    padding:80px 60px;
+    text-align:center;
+    color:white;
+    box-shadow:0 20px 50px rgba(79,70,229,.25);
+}
+
+.hero h1{
+    font-size:52px;
+    margin-bottom:20px;
+    line-height:1.2;
+}
+
+.hero p{
+    max-width:750px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    opacity:.95;
+}
+
+.hero-buttons{
+    margin-top:35px;
+}
+
+.hero-btn,
+.hero-btn-outline{
+    display:inline-block;
+    margin:10px;
+    padding:15px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.35s;
+}
+
+.hero-btn{
+    background:white;
+    color:#4F46E5;
+}
+
+.hero-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(255,255,255,.35);
+}
+
+.hero-btn-outline{
+    border:2px solid white;
+    color:white;
+}
+
+.hero-btn-outline:hover{
+    background:white;
+    color:#4F46E5;
+}
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title{
+    text-align:center;
+    margin:60px 0;
+}
+
+.page-title h2{
+    font-size:42px;
+    color:#4338CA;
+    margin-bottom:12px;
+}
+
+.page-title p{
+    color:#6B7280;
+    font-size:18px;
+}
+
+/* ==========================================
+   SKILLS GRID
+========================================== */
+
+.skills-section{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    margin-bottom:60px;
+}
+/* ==========================================
+   SKILL CARDS
+========================================== */
+
+.skill-card{
+    background:#ffffff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(79,70,229,.12);
+    transition:.35s ease;
+    border:1px solid #e5e7eb;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.skill-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 25px 45px rgba(79,70,229,.22);
+}
+
+.card-header{
+    padding:20px 25px 0;
+}
+
+.category{
+    display:inline-block;
+    background:linear-gradient(135deg,#4F46E5,#7C3AED);
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.skill-card h3{
+    padding:18px 25px 10px;
+    font-size:26px;
+    color:#312e81;
+}
+
+.skill-card p{
+    padding:0 25px;
+    color:#6b7280;
+    line-height:1.8;
+    font-size:15px;
+    flex:1;
+}
+
+.card-footer{
+    padding:25px;
+}
+
+.request-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    padding:15px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#06b6d4,#2563eb);
+    color:#fff;
+    font-weight:600;
+    transition:.35s;
+}
+
+.request-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(37,99,235,.35);
+}
+
+/* ==========================================
+   EMPTY CARD
+========================================== */
+
+.empty-card{
+    grid-column:1/-1;
+    background:#fff;
+    border-radius:25px;
+    padding:70px 40px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.empty-card h2{
+    color:#4338CA;
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.empty-card p{
+    color:#6b7280;
+    margin-bottom:35px;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+.cta{
+    width:90%;
+    max-width:1200px;
+    margin:80px auto;
+    text-align:center;
+    background:linear-gradient(135deg,#4338CA,#7C3AED);
+    color:#fff;
+    padding:70px 30px;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(79,70,229,.25);
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:35px;
+    background:#fff;
+    color:#4F46E5;
+    text-decoration:none;
+    padding:16px 40px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.35s;
+}
+
+.cta-btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(255,255,255,.35);
+}
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+    margin-top:80px;
+    background:linear-gradient(135deg,#1e1b4b,#312e81,#4338ca);
+    color:#ffffff;
+    text-align:center;
+    padding:60px 20px 30px;
+}
+
+footer h3{
+    font-size:30px;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+footer p{
+    font-size:16px;
+    color:#d1d5db;
+    margin:8px 0;
+    line-height:1.8;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef2ff;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#6366f1;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#4338ca;
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.hero,
+.page-title,
+.skill-card,
+.cta,
+footer{
+
+    animation:fadeUp .8s ease forwards;
+
+}
+
+/* Floating animation */
+
+@keyframes floating{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+.hero-btn,
+.hero-btn-outline,
+.cta-btn{
+
+    animation:floating 4s ease-in-out infinite;
+
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.logo h2:hover{
+    transform:scale(1.05);
+    transition:.3s;
+}
+
+.category:hover{
+    transform:scale(1.08);
+}
+
+.request-btn:hover,
+.hero-btn:hover,
+.hero-btn-outline:hover,
+.cta-btn:hover{
+
+    transition:.35s;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .hero{
+        padding:60px 30px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .page-title h2{
+        font-size:34px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:18px;
+        padding:20px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero{
+        padding:45px 20px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .hero-btn,
+    .hero-btn-outline{
+        width:100%;
+        max-width:260px;
+    }
+
+    .page-title h2{
+        font-size:30px;
+    }
+
+    .page-title p{
+        font-size:16px;
+    }
+
+    .skills-container{
+        grid-template-columns:1fr;
+    }
+
+    .skill-card h3{
+        font-size:22px;
+    }
+
+    .cta{
+        padding:50px 20px;
+    }
+
+    .cta h2{
+        font-size:30px;
+    }
+
+    .cta p{
+        font-size:16px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .logo h2{
+        font-size:24px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .skill-card{
+        border-radius:18px;
+    }
+
+    .card-header,
+    .card-footer,
+    .skill-card h3,
+    .skill-card p{
+        padding-left:18px;
+        padding-right:18px;
+    }
+
+    footer h3{
+        font-size:24px;
+    }
+
+    footer p{
+        font-size:14px;
+    }
+
+}

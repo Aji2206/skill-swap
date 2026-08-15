@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Skills | Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/search_skill.css' %}">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>🔍 Search Skills</h1>
+
+        <p>
+            Find the perfect skill from our Skill Swap community.
+        </p>
+
+    </div>
+
+    <form method="GET" action="{% url 'search_skill' %}" class="search-box">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search Python, Java, Cooking..."
+            value="{{ request.GET.q }}">
+
+        <button type="submit">
+            🔍 Search
+        </button>
+
+    </form>
+
+    <div class="results">
+
+    {% if skills %}
+
+        {% for skill in skills %}
+
+        <div class="card">
+
+            <div class="card-top">
+
+                <h2>{{ skill.title }}</h2>
+
+                <span class="category">
+                    {{ skill.category }}
+                </span>
+
+            </div>
+
+            <p>
+                {{ skill.description }}
+            </p>
+
+            <div class="buttons">
+
+                <a href="{% url 'request_skill' skill.id %}" class="request-btn">
+                    📩 Request Skill
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+
+            <h2>😔 No Skills Found</h2>
+
+            <p>
+                Try searching with another keyword.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+    </div>
+
+    <div class="back">
+
+        <a href="{% url 'skill_list' %}" class="back-btn">
+
+            ← Back to Skills
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

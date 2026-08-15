@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Skill | Skill Swap</title>
+
+    <link rel="stylesheet" href="{% static 'css/skill_form.css' %}">
+</head>
+
+<body>
+
+<div class="background-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="heading">
+
+            <h1>📨 Request Skill</h1>
+
+            <p>
+                Connect with another learner and request this skill.
+            </p>
+
+        </div>
+
+        <div class="skill-details">
+
+            <h2>{{ skill.title }}</h2>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+
+                    <h4>👤 Skill Owner</h4>
+
+                    <p>{{ skill.user.username }}</p>
+
+                </div>
+
+                {% if skill.category %}
+                <div class="info-box">
+
+                    <h4>📂 Category</h4>
+
+                    <p>{{ skill.category }}</p>
+
+                </div>
+                {% endif %}
+
+                {% if skill.level %}
+                <div class="info-box">
+
+                    <h4>⭐ Level</h4>
+
+                    <p>{{ skill.level }}</p>
+
+                </div>
+                {% endif %}
+
+            </div>
+
+            <div class="description-box">
+
+                <h4>📝 Description</h4>
+
+                <p>{{ skill.description }}</p>
+
+            </div>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {% for field in form %}
+
+            <div class="form-group">
+
+                {{ field.label_tag }}
+
+                {{ field }}
+
+                {% if field.errors %}
+                <small class="error">
+                    {{ field.errors }}
+                </small>
+                {% endif %}
+
+            </div>
+
+            {% endfor %}
+
+            <div class="button-group">
+
+                <button type="submit" class="btn btn-save">
+                    📨 Send Request
+                </button>
+
+                <a href="{% url 'search_skill' %}" class="btn btn-cancel">
+                    ← Back
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

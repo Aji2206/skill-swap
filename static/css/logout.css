@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#4F46E5,#6366F1,#8B5CF6);
+
+    overflow:hidden;
+
+}
+
+/* Background */
+
+.background-circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+}
+
+.circle1{
+
+    width:350px;
+    height:350px;
+
+    top:-100px;
+    left:-120px;
+
+}
+
+.circle2{
+
+    width:250px;
+    height:250px;
+
+    bottom:-80px;
+    right:-80px;
+
+}
+
+/* Container */
+
+.logout-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+    position:relative;
+
+}
+
+/* Card */
+
+.logout-card{
+
+    width:450px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+    animation:popup .6s ease;
+
+}
+
+/* Icon */
+
+.logout-icon{
+
+    width:100px;
+
+    height:100px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:48px;
+
+    background:linear-gradient(135deg,#EF4444,#DC2626);
+
+    color:white;
+
+    box-shadow:0 15px 30px rgba(239,68,68,.35);
+
+    margin-bottom:25px;
+
+}
+
+.logout-card h1{
+
+    color:#4338CA;
+
+    margin-bottom:15px;
+
+    font-size:34px;
+
+}
+
+.logout-card p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+    font-size:17px;
+
+}
+
+/* Buttons */
+
+.button-group{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.logout-btn{
+
+    flex:1;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(135deg,#EF4444,#DC2626);
+
+    transition:.35s;
+
+}
+
+.logout-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(239,68,68,.35);
+
+}
+
+.cancel-btn{
+
+    flex:1;
+
+    text-decoration:none;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#4F46E5,#6366F1);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.cancel-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 30px rgba(79,70,229,.35);
+
+}
+
+/* Animation */
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px) scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.logout-card{
+
+    width:100%;
+
+    padding:35px 25px;
+
+}
+
+.button-group{
+
+    flex-direction:column;
+
+}
+
+.logout-card h1{
+
+    font-size:28px;
+
+}
+
+.logout-icon{
+
+    width:80px;
+    height:80px;
+    font-size:40px;
+
+}
+
+}

@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inbox | Skill Swap</title>
+
+<link rel="stylesheet" href="{% static 'css/inbox.css' %}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+<i class="fa-solid fa-comments"></i>
+Skill Swap
+</div>
+
+<div class="menu">
+
+<a href="{% url 'dashboard' %}">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
+
+<a href="{% url 'matches' %}">
+<i class="fa-solid fa-users"></i>
+Matches
+</a>
+
+<a href="{% url 'profile' %}">
+<i class="fa-solid fa-user"></i>
+Profile
+</a>
+
+</div>
+
+</nav>
+
+
+<div class="container">
+
+<div class="header">
+
+<h1>💬 Inbox</h1>
+
+<p>
+Start chatting with your Skill Swap partners.
+</p>
+
+</div>
+
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="Search users...">
+
+</div>
+
+
+{% if users %}
+
+<div class="users">
+
+{% for user in users %}
+
+<a href="{% url 'chat' user.id %}" class="card">
+
+<div class="avatar">
+
+{{ user.username|first|upper }}
+
+</div>
+
+<div class="info">
+
+<h2>
+
+{{ user.username }}
+
+</h2>
+
+<p>
+
+Click to start chatting
+
+</p>
+
+</div>
+
+<div class="chat-icon">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</div>
+
+</a>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty">
+
+<i class="fa-solid fa-comments"></i>
+
+<h2>No Conversations Yet</h2>
+
+<p>
+
+No users are available to chat.
+
+</p>
+
+<a href="{% url 'matches' %}" class="btn">
+
+Find Skill Matches
+
+</a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
